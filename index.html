@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Phân biệt HTMLCollection và NodeList
+
+        /*  TMLCollection:
+       Là một tập hợp(collection) các phần tử trong cây DOM.
+       Thường trả về từ các phương thức như getElementsByTagName, getElementsByClassName, getElementsByName, và children của một phần tử.
+       HTMLCollection thường là "live"(tức là nó tự động cập nhật khi cây DOM thay đổi).Nếu bạn thêm hoặc xoá một phần tử, HTMLCollection sẽ tự động cập nhật để phản ánh sự thay đổi này.
+       Có thể truy cập các phần tử bằng tên hoặc chỉ mục[i]. */
+
+        /* NodeList:
+       Là một danh sách các nút (node) trong cây DOM.
+       Trả về từ các phương thức như querySelectorAll hoặc childNodes của một phần tử.
+       Thay đổi trong DOM (như thêm hoặc xoá phần tử) thường không được phản ánh tức thì trong NodeList. Điều này có nghĩa là NodeList thường là tĩnh và không cập nhật khi cây DOM thay đổi.
+       Có thể truy cập các phần tử bằng chỉ mục [i]. */
+
+        // ví dụ :
+
+        // NodeList
+        const nodeList = document.querySelectorAll('p'); // Lấy tất cả các thẻ <p> trong tài liệu
+        console.log(nodeList[0]); // Truy cập phần tử đầu tiên trong NodeList
+
+        // HTMLCollection
+        const htmlCollection = document.getElementsByTagName('p'); // Lấy tất cả các thẻ <p> trong tài liệu
+        console.log(htmlCollection[0]); // Truy cập phần tử đầu tiên trong HTMLCollection
+
+        // Thêm một phần tử mới
+        const newElement = document.createElement('p');
+        document.body.appendChild(newElement);
+
+        console.log(nodeList.length); // Không thay đổi
+        console.log(htmlCollection.length); // Tự động cập nhật
+
+
+    </script>
+</body>
+
+</html>
